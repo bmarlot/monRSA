@@ -1,5 +1,5 @@
-from chiffrement_dechiffrement import chiffrement
-from chiffrement_dechiffrement import dechiffrement
+from chiffrement_dechiffrement import encryption
+from chiffrement_dechiffrement import decryption
 
 # TODO : Faire un main qui prends l'algo de base.
 
@@ -32,8 +32,8 @@ def key_gen():
 
 
 def main():
-    chiffrement()
-    dechiffrement()
+    encryption()
+    decryption()
 
 
 # TODO : Faire un main qui lance le programme avec les bonnes fonctions
