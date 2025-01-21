@@ -2,6 +2,8 @@
 
 '''
 
+Vérifier si nombre premier avec Miler Rabbin => https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin/
+
 Chiffrement
  Pour chiffrer une chaîne de caractères avec la clé publique n et e, il faut :
  • Transformer chaque caractère en entrée en un chiffre en utilisant le code ASCII
@@ -25,8 +27,22 @@ encode
 '''
 
 
-def encryption():
+def encryption(n, e, toEncrypt):
+
+    ascii_values = [ord(char) for char in toEncrypt]
+    print(n)
+    print(e)
+    print(ascii_values)
 
 
 
-def decryption():
+
+
+#def decryption():
+
+toEncrypt = input("Chaine de caracere à transformer :")
+n = "placeholder"
+e = "placeholder 2"
+
+
+encryption(n, e, toEncrypt)

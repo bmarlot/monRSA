@@ -29,11 +29,18 @@ Bravo, vous avez une clé privée : n et d et une clé publique : n et e
 
 def key_gen():
     print("PLACEHOLDER")
+    nb = random.randint(1000000000,9999999999)
+    nb& = nb1 * nb2
+    n2 = (nb1 - 1) * (nb2 - 1)
+
+
+    print()
 
 
 def main():
-    encryption()
-    decryption()
+#    encryption()
+#    decryption()
+    key_gen()
 
 
 # TODO : Faire un main qui lance le programme avec les bonnes fonctions
