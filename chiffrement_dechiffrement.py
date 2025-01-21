@@ -25,8 +25,8 @@ encode
 '''
 
 
-def chiffrement():
+def encryption():
 
 
 
-def dechiffrement():
+def decryption():
