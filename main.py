@@ -78,15 +78,25 @@ def key_gen():
     if d is None:
         return key_gen()  # Relance la génération si l'inverse modulaire n'existe pas
 
-    nb1 = n * e
-    nb2 = n * d
-    return nb1, nb2
+    hex_n = hex(n)
+    hex_e = hex(e)
+    hex_d = hex(d)
 
-print(key_gen())
+    public_key = f"{hex_n}\n{hex_e}"
+    private_key = f"{hex_n}\n{hex_d}"
+
+    with open("public_key.txt", "w") as fichier:
+        fichier.write("---begin monRSA public key---\n" + base64.b64encode(public_key.encode('utf-8')).decode(
+            'utf-8') + "\n---end monRSA key---")
+
+    with open("private_key.txt", "w") as fichier:
+        fichier.write("---begin monRSA private key---\n" + base64.b64encode(private_key.encode('utf-8')).decode(
+            'utf-8') + "\n---end monRSA private key---")
 
 
 
 def main():
+
 #    encryption()
 #    decryption()
     key_gen()
