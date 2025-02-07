@@ -2,7 +2,7 @@
 #from chiffrement_dechiffrement import decryption
 import random
 from operator import truediv
-
+import base64
 # TODO : Faire un main qui prends l'algo de base.
 
 '''
@@ -91,15 +91,54 @@ def key_gen():
 
     with open("private_key.txt", "w") as fichier:
         fichier.write("---begin monRSA private key---\n" + base64.b64encode(private_key.encode('utf-8')).decode(
-            'utf-8') + "\n---end monRSA private key---")
+            'utf-8') + "\n---end monRSA key---")
 
 
+
+def print_manual():
+    manual = """
+    Script monRSA par bryan et jb
+    -----------------------------------
+    Syntaxe :
+      monRSA <commande> [<clé>] [<texte>] [switchs]
+
+    Commandes :
+      keygen                : Génère une paire de clés RSA.
+      crypt <clé> <texte>   : Chiffre <texte> avec la clé publique <clé>.
+      decrypt <clé> <texte> : Déchiffre <texte> avec la clé privée <clé>.
+      help                  : Affiche ce manuel.
+
+    Clé :
+      Un fichier contenant une clé publique ("crypt") ou une clé privée ("decrypt").
+
+    Texte :
+      Une phrase en clair ("crypt") ou une phrase chiffrée ("decrypt").
+    """
+    print(manual)
 
 def main():
+    # Vérifier les arguments passés en ligne de commande
+    if len(sys.argv) < 2 or sys.argv[1] == "help":
+        print_manual()
+        return
 
-#    encryption()
-#    decryption()
-    key_gen()
+    command = sys.argv[1]
+
+    if command == "--help":
+        print_manual()
+    elif command == "--keygen":
+        key_gen()
+    elif command == "--crypt":
+        #    encryption()
+        print_manual()
+    elif command == "--decrypt":
+        #    decryption()
+        print_manual()
+    else:
+        print("Erreur : Commande invalide ou arguments manquants.\n")
+        print_manual()
+
+
 
 
 # TODO : Faire un main qui lance le programme avec les bonnes fonctions
