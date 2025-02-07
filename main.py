@@ -1,8 +1,9 @@
-#from chiffrement_dechiffrement import encryption
-#from chiffrement_dechiffrement import decryption
+# from chiffrement_dechiffrement import encryption
+# from chiffrement_dechiffrement import decryption
 import random
 from operator import truediv
 import base64
+
 # TODO : Faire un main qui prends l'algo de base.
 
 '''
@@ -28,8 +29,9 @@ Concrètement :
 Bravo, vous avez une clé privée : n et d et une clé publique : n et e
 
 
- 
+
 '''
+
 
 def is_prime(n):
     if n <= 1:
@@ -39,8 +41,10 @@ def is_prime(n):
             return False
     return True
 
+
 def random_nb():
     return random.randint(1000000000, 9999999999)
+
 
 def egcd(a, b):
     """ Algorithme d'Euclide étendu : retourne (gcd, x, y) tel que ax + by = gcd(a, b) """
@@ -51,12 +55,14 @@ def egcd(a, b):
     y = x1
     return gcd, x, y
 
+
 def mod_inverse(e, phi):
     """ Trouve l'inverse modulaire de e modulo phi en utilisant l'algorithme d'Euclide étendu """
     gcd, x, _ = egcd(e, phi)
     if gcd != 1:
         return None  # Aucun inverse modulaire n'existe si gcd(e, phi) ≠ 1
     return x % phi  # Assure un résultat positif
+
 
 def key_gen():
     p = random_nb()
@@ -94,7 +100,6 @@ def key_gen():
             'utf-8') + "\n---end monRSA key---")
 
 
-
 def print_manual():
     manual = """
     Script monRSA par bryan et jb
@@ -115,6 +120,7 @@ def print_manual():
       Une phrase en clair ("crypt") ou une phrase chiffrée ("decrypt").
     """
     print(manual)
+
 
 def main():
     # Vérifier les arguments passés en ligne de commande
@@ -137,8 +143,6 @@ def main():
     else:
         print("Erreur : Commande invalide ou arguments manquants.\n")
         print_manual()
-
-
 
 
 # TODO : Faire un main qui lance le programme avec les bonnes fonctions
