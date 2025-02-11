@@ -1,36 +1,9 @@
-# from chiffrement_dechiffrement import encryption
-# from chiffrement_dechiffrement import decryption
-import random
-from operator import truediv
 import base64
+import random
+import sys
 
-# TODO : Faire un main qui prends l'algo de base.
-
-'''
-# ALGO DE BASE :
-
-Génération des clé
-On utilise 6 nombres entiers p, q, n, n’, d et e qui respectent les règles suivantes :
-• p & q sont deux nombres premiers différents
-• n = pq
-• n’ = (p - 1) (q – 1)
-• e est un nombre premier différent de d
-• ed = 1 modulo n’
-
-Concrètement :
-• Générer 2 nombres 1er différents de 10 chiffres de long2
-: p & q
-• Calculer n et n’ (facile)
-• Faire une boucle3
- qui teste des valeurs pour e et d jusqu’à ce que :
-◦ e soit premier
-◦ e soit différent de d
-◦ ed % n’ = 1 (ou, dit autrement, ed = 1 modulo n’)
-Bravo, vous avez une clé privée : n et d et une clé publique : n et e
-
-
-
-'''
+from chiffrement_dechiffrement import decryption
+from chiffrement_dechiffrement import encryption
 
 
 def is_prime(n):
@@ -47,7 +20,7 @@ def random_nb():
 
 
 def egcd(a, b):
-    """ Algorithme d'Euclide étendu : retourne (gcd, x, y) tel que ax + by = gcd(a, b) """
+    # Algorithme d'Euclide étendu : retourne (gcd, x, y) tel que ax + by = gcd(a, b)
     if a == 0:
         return b, 0, 1
     gcd, x1, y1 = egcd(b % a, a)
@@ -57,7 +30,7 @@ def egcd(a, b):
 
 
 def mod_inverse(e, phi):
-    """ Trouve l'inverse modulaire de e modulo phi en utilisant l'algorithme d'Euclide étendu """
+    # Trouve l'inverse modulaire de e modulo phi en utilisant l'algorithme d'Euclide étendu
     gcd, x, _ = egcd(e, phi)
     if gcd != 1:
         return None  # Aucun inverse modulaire n'existe si gcd(e, phi) ≠ 1
@@ -135,17 +108,14 @@ def main():
     elif command == "--keygen":
         key_gen()
     elif command == "--crypt":
-        #    encryption()
+        encryption()
         print_manual()
     elif command == "--decrypt":
-        #    decryption()
+        decryption()
         print_manual()
     else:
         print("Erreur : Commande invalide ou arguments manquants.\n")
         print_manual()
-
-
-# TODO : Faire un main qui lance le programme avec les bonnes fonctions
 
 
 if __name__ == '__main__':
