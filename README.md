@@ -3,7 +3,7 @@
 Un outil de chiffrement RSA simple développé en Python.
 
 ## Description
-monRSA est un programme permettant de générer des clés RSA et de chiffrer/déchiffrer des messages. Il implémente l'algorithme RSA avec des clés de 10 chiffres.
+monRSA est un programme développé dans le cadre d'un TP de cours, permettant de générer des clés RSA et de chiffrer/déchiffrer des messages. Il implémente l'algorithme RSA avec des clés de 10 chiffres.
 
 ## Installation
 
